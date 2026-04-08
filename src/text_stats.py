@@ -16,3 +16,11 @@ def count_words(text: str) -> int:
         return 0
     words = re.split(r"[ ,;:]+", text.strip())
     return len([w for w in words if w])
+
+
+def count_sentences(text: str) -> int:
+    """Count sentences. Endings: '.', '!', '?', '...'"""
+    if not text or not text.strip():
+        return 0
+    parts = re.split(r"[.!?]+", text)
+    return len([p for p in parts if p.strip()])
